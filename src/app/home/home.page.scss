@@ -1,4 +1,30 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-item {
+  --highlight-height: 0;
+}
+
+.error {
+  font-size: 12px;
+}
+
+.picture-container {
+  width:100%;
+  height: 40vh;
+
+  img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  // ion-icon {
+  //   background-color: #fff;
+  //   border-radius: 100%;
+  // }
+
+  ion-buttons {
+    position: absolute;
+    top:0;
+    right:0;
+  }
 }

@@ -4,24 +4,37 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Mes lieux
     </ion-title>
   </ion-toolbar>
+  <ion-segment (ionChange)="selectedType = $event.target.value" value="">
+    <ion-segment-button value="Paysage">
+      <ion-label>Pays.</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Architecture">
+      <ion-label>Archi.</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Autre">
+      <ion-label>Autre</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="">
+      <ion-label>Tous</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+    <ng-container *ngFor="let place of places">
+      <ion-item *ngIf='place.type == selectedType || !selectedType'>
+        <ion-thumbnail>
+          <ion-img [src]='place.pictureUrl || defaultImageUrl'></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ place.title }}</h3>
+          <h4>{{ place.description }}</h4>
+        </ion-label>
+      </ion-item>
+    </ng-container>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

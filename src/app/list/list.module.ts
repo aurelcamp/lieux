@@ -16,7 +16,7 @@ import { ListPage } from './list.page';
         path: '',
         component: ListPage
       }
-    ])
+    ]),
   ],
   declarations: [ListPage]
 })

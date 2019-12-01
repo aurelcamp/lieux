@@ -1,5 +1,7 @@
 {
   "name": "lieux",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
